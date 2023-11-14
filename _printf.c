@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list  args;
-	int a = 0, len = 0;
+	int a = 0, len = 0,j;
 	convert_match handlers[] = {
 		{"%s", printf_string}, {"%c", printf_char},
 		{"%%", printf_37},
@@ -29,7 +29,7 @@ Here:
 		j = 13;
 		while (j >= 0)
 		{
-			if (handlers[j].id[0] == format[ai] && handlers[j].id[1] == format[a + 1])
+			if (handlers[j].id[0] == format[a] && handlers[j].id[1] == format[a + 1])
 			{
 				len += handlers[j].f(args);
 				a += 2;
